@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Najla Al-Shahrani — SOC Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #F4EFEA;
+    --ink-dim: #B9ADC2;
+    --bg-0: #140C1E;
+    --bg-1: #1C1229;
+    --bg-2: #241834;
+    --purple: #6B3E8A;
+    --plum: #7A3F55;
+    --burgundy: #8A2E42;
+    --gold: #D9A45B;
+    --gold-bright: #E8C77E;
+    --line: rgba(217,164,91,0.22);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--bg-0);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  ::selection{background: var(--gold); color: var(--bg-0);}
+
+  .bg-field{
+    position: fixed; inset:0; z-index:-1;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(107,62,138,0.35), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 80%, rgba(138,46,66,0.2), transparent),
+      var(--bg-0);
+  }
+
+  .wrap{max-width: 920px; margin:0 auto; padding: 0 28px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position: sticky; top:0; z-index:50;
+    backdrop-filter: blur(14px);
+    background: rgba(20,12,30,0.7);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height: 64px;
+  }
+  .brand{font-family:var(--serif); font-size:1.05rem; letter-spacing:0.02em;}
+  .brand .dot{color: var(--gold);}
+  .navlinks{display:flex; gap: 28px; font-size:0.88rem; color: var(--ink-dim);}
+  .navlinks a:hover{color: var(--gold-bright);}
+  @media(max-width:640px){.navlinks{display:none;}}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding: 96px 0 72px;
+    display:grid; grid-template-columns: 1fr auto; gap: 48px; align-items:center;
+  }
+  @media(max-width:720px){
+    header.hero{grid-template-columns:1fr; text-align:center; padding-top:64px;}
+    .hero-figure{margin: 0 auto;}
+  }
+  .kicker{
+    font-size:0.82rem; color: var(--gold); letter-spacing:0.04em; margin-bottom: 18px;
+  }
+  h1{
+    font-family: var(--serif);
+    font-weight:500;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  h1 em{font-style:italic; color: var(--gold-bright);}
+  .lede{
+    margin-top: 22px; max-width: 46ch; color: var(--ink-dim); font-size: 1.05rem;
+  }
+  @media(max-width:720px){.lede{margin-inline:auto;}}
+  .hero-cta{display:flex; gap:14px; margin-top: 32px; flex-wrap:wrap;}
+  @media(max-width:720px){.hero-cta{justify-content:center;}}
+  .btn{
+    padding: 12px 22px; border-radius: 3px; font-size:0.92rem; font-weight:600;
+    border: 1px solid var(--line); transition: all .2s ease;
+  }
+  .btn.primary{background: var(--gold); color: var(--bg-0); border-color: var(--gold);}
+  .btn.primary:hover{background: var(--gold-bright);}
+  .btn.ghost:hover{border-color: var(--gold); color: var(--gold-bright);}
+
+  .hero-figure svg{width: 200px; height: 200px;}
+  @media(max-width:720px){.hero-figure svg{width:160px; height:160px;}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding: 64px 0; border-top: 1px solid var(--line);}
+  .section-head{display:flex; align-items:baseline; gap:16px; margin-bottom: 40px;}
+  .section-num{font-family:var(--serif); color: var(--gold); font-size:1rem;}
+  .section-title{font-family:var(--serif); font-weight:500; font-size:1.7rem;}
+  .section-sub{color: var(--ink-dim); font-size:0.95rem; margin-top:6px; max-width:60ch;}
+
+  /* ---------- DUAL PATH (Education) ---------- */
+  .paths{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 0;
+    position: relative;
+  }
+  @media(max-width:680px){.paths{grid-template-columns:1fr; gap:36px;}}
+  .path{
+    padding: 26px 28px; position:relative;
+  }
+  .path.is{border-right:1px solid var(--line);}
+  @media(max-width:680px){.path.is{border-right:none; border-bottom:1px solid var(--line); padding-bottom:36px;}}
+  .path-tag{
+    font-size:0.75rem; letter-spacing:0.03em; color: var(--gold);
+    margin-bottom:10px; display:block;
+  }
+  .path h3{font-family:var(--serif); font-size:1.25rem; font-weight:500; margin-bottom:6px;}
+  .path .meta{color: var(--ink-dim); font-size:0.86rem; margin-bottom:14px;}
+  .path p{color: var(--ink-dim); font-size:0.92rem;}
+  .merge-note{
+    grid-column: 1 / -1; text-align:center; padding: 22px 0 6px;
+    font-family: var(--serif); font-style:italic; color: var(--ink-dim); font-size:0.98rem;
+  }
+  @media(max-width:680px){.merge-note{grid-column:auto; padding-top:0;}}
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .certs{display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px;}
+  @media(max-width:680px){.certs{grid-template-columns:1fr;}}
+  .cert{
+    border:1px solid var(--line); border-radius:4px; padding:24px;
+    background: linear-gradient(160deg, rgba(107,62,138,0.08), rgba(138,46,66,0.05));
+    position:relative;
+  }
+  .cert .badge{
+    width:40px; height:40px; border-radius:50%;
+    border: 1.5px solid var(--gold); display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-size:0.85rem; color: var(--gold-bright); margin-bottom:16px;
+  }
+  .cert h4{font-family:var(--serif); font-size:1.1rem; margin-bottom:4px;}
+  .cert .issuer{color: var(--ink-dim); font-size:0.84rem; margin-bottom:12px;}
+  .cert .status{
+    display:inline-block; font-size:0.72rem; padding:3px 10px; border-radius:20px;
+    border:1px solid var(--line); color: var(--ink-dim);
+  }
+  .cert .status.active{color: var(--gold-bright); border-color: var(--gold);}
+
+  /* ---------- PROJECTS (case files) ---------- */
+  .cases{display:flex; flex-direction:column; gap:1px; background: var(--line);}
+  .case{
+    background: var(--bg-0); padding: 26px 28px;
+    display:grid; grid-template-columns: 100px 1fr; gap:24px;
+  }
+  @media(max-width:600px){.case{grid-template-columns:1fr; gap:8px;}}
+  .case .id{font-family:var(--serif); color: var(--gold); font-size:0.85rem;}
+  .case h4{font-family:var(--serif); font-size:1.15rem; margin-bottom:8px;}
+  .case p{color: var(--ink-dim); font-size:0.92rem; margin-bottom:12px;}
+  .case .stack{display:flex; gap:8px; flex-wrap:wrap;}
+  .case .stack span{
+    font-size:0.74rem; color: var(--ink-dim); border:1px solid var(--line);
+    padding:3px 9px; border-radius:20px;
+  }
+  .case .placeholder-tag{
+    color: var(--gold-bright); font-size:0.78rem; font-style:italic;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skillgrid{display:grid; grid-template-columns: repeat(2, 1fr); gap: 28px;}
+  @media(max-width:680px){.skillgrid{grid-template-columns:1fr;}}
+  .skillcol h4{
+    font-family: var(--serif); color: var(--gold-bright); font-size:1rem; margin-bottom:14px;
+    font-weight:500;
+  }
+  .skillcol ul{list-style:none;}
+  .skillcol li{
+    color: var(--ink-dim); font-size:0.9rem; padding:8px 0;
+    border-bottom: 1px solid rgba(217,164,91,0.1);
+  }
+
+  /* ---------- CONTACT ---------- */
+  footer{padding: 72px 0 48px; text-align:center;}
+  footer h2{font-family:var(--serif); font-weight:500; font-size:2rem; margin-bottom:16px;}
+  footer p{color: var(--ink-dim); margin-bottom:28px;}
+  .contact-links{display:flex; gap:20px; justify-content:center; flex-wrap:wrap; font-size:0.92rem;}
+  .contact-links a{
+    padding:10px 20px; border:1px solid var(--line); border-radius:3px;
+    transition: all .2s;
+  }
+  .contact-links a:hover{border-color:var(--gold); color:var(--gold-bright);}
+  .fine{color: var(--ink-dim); font-size:0.78rem; margin-top:48px; opacity:0.6;}
+</style>
+</head>
+<body>
+<div class="bg-field"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Najla<span class="dot">.</span>AlShahrani</div>
+    <div class="navlinks">
+      <a href="#foundation">Foundation</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#casework">Casework</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap" style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
+    <div>
+      <div class="kicker">SOC Analyst · Riyadh, Saudi Arabia</div>
+      <h1>Reads the system<br>before it's <em>breached</em>.</h1>
+      <p class="lede">A cybersecurity analyst built on a dual foundation — information systems and security operations — investigating 80–100+ real alerts through SIEM, threat intelligence, and the MITRE ATT&CK framework.</p>
+      <div class="hero-cta">
+        <a href="#casework" class="btn primary">View casework</a>
+        <a href="#contact" class="btn ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sil" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#6B3E8A"/>
+            <stop offset="55%" stop-color="#7A3F55"/>
+            <stop offset="100%" stop-color="#D9A45B"/>
+          </linearGradient>
+          <linearGradient id="gl" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#E8C77E"/>
+            <stop offset="100%" stop-color="#B8763F"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(400,400)">
+          <path d="M0,-300 C34,-296 62,-282 80,-258 C90,-228 92,-195 88,-160 C78,-130 64,-108 46,-92 C64,-78 92,-45 112,10 C124,80 128,150 128,220 L-128,220 C-128,150 -124,80 -112,10 C-92,-45 -64,-78 -46,-92 C-64,-108 -78,-130 -88,-160 C-92,-195 -90,-228 -80,-258 C-62,-282 -34,-296 0,-300 Z"
+                fill="url(#sil)" stroke="url(#gl)" stroke-width="4"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section id="foundation">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <div>
+        <div class="section-title">A dual foundation</div>
+        <div class="section-sub">Two diplomas, one direction — systems thinking applied to security operations.</div>
+      </div>
+    </div>
+    <div class="paths">
+      <div class="path is">
+        <span class="path-tag">TRACK ONE</span>
+        <h3>Information Systems</h3>
+        <div class="meta">King Khalid University</div>
+        <p>Programming (Java, C, C++, C#, JavaScript), databases, operating systems, and algorithms — the substrate that every security incident runs on.</p>
+      </div>
+      <div class="path cs">
+        <span class="path-tag">TRACK TWO</span>
+        <h3>Cybersecurity & Network Systems</h3>
+        <div class="meta">Learning Academy · 2.5 years</div>
+        <p>Threat detection, network defense, and incident response — applying systems knowledge directly against real attack patterns.</p>
+      </div>
+      <div class="merge-note">Both tracks converge in daily SOC work: reading logs like code, and code like a possible attack surface.</div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <div>
+        <div class="section-title">Certifications</div>
+        <div class="section-sub">Credentials that verify both sides of the foundation.</div>
+      </div>
+    </div>
+    <div class="certs">
+      <div class="cert">
+        <div class="badge">CEH</div>
+        <h4>Certified Ethical Hacker</h4>
+        <div class="issuer">EC-Council</div>
+        <span class="status active">Active</span>
+      </div>
+      <div class="cert">
+        <div class="badge">CCNA</div>
+        <h4>Cisco Certified Network Associate</h4>
+        <div class="issuer">Cisco</div>
+        <span class="status active">Active</span>
+      </div>
+      <div class="cert">
+        <div class="badge">BTL1</div>
+        <h4>Blue Team Level 1</h4>
+        <div class="issuer">Security Blue Team</div>
+        <span class="status">In progress</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="casework">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <div>
+        <div class="section-title">Casework</div>
+        <div class="section-sub">Selected investigations — from training-ground exercises to live SOC alerts. Edit this section with your own write-ups.</div>
+      </div>
+    </div>
+  </div>
+  <div class="cases">
+    <div class="case">
+      <span class="id">01</span>
+      <div>
+        <h4>Log Analyzer — Automated Alert Triage</h4>
+        <p>A Python script that parses Windows Event Logs and flags repeated failed logon attempts (Event 4625) for early-stage brute-force detection.</p>
+        <div class="stack"><span>Python</span><span>Windows Event Logs</span><span>SOC Automation</span></div>
+      </div>
+    </div>
+    <div class="case">
+      <span class="id">02</span>
+      <div>
+        <h4>TryHackMe — SOC Level 1 Path</h4>
+        <p class="placeholder-tag">Replace with your write-up once completed: summarize the scenario, tools used, and MITRE ATT&CK techniques identified.</p>
+        <div class="stack"><span>SIEM</span><span>MITRE ATT&CK</span><span>Threat Hunting</span></div>
+      </div>
+    </div>
+    <div class="case">
+      <span class="id">03</span>
+      <div>
+        <h4>SQL Injection — Build & Break</h4>
+        <p class="placeholder-tag">Add once built: a deliberately vulnerable login form, documenting the exploit and the fix, to demonstrate both sides of the vulnerability.</p>
+        <div class="stack"><span>SQL</span><span>Web Security</span><span>PHP</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <div>
+        <div class="section-title">Toolkit</div>
+      </div>
+    </div>
+    <div class="skillgrid">
+      <div class="skillcol">
+        <h4>Security Operations</h4>
+        <ul>
+          <li>SIEM Analysis & Alert Triage</li>
+          <li>MITRE ATT&CK / Cyber Kill Chain</li>
+          <li>Threat Intelligence (VirusTotal, ip_intel)</li>
+          <li>Incident Response & Documentation</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h4>Systems & Development</h4>
+        <ul>
+          <li>Python, PHP, Java, C / C++ / C#</li>
+          <li>SQL & Database Design</li>
+          <li>Windows & Linux Environments</li>
+          <li>Network Fundamentals (TCP/IP, DNS)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk security.</h2>
+    <p>Open to SOC Analyst, Threat Intelligence, and Incident Response roles.</p>
+    <div class="contact-links">
+      <a href="mailto:najlaaal@outlook.com">najlaaal@outlook.com</a>
+      <a href="https://linkedin.com/in/najlaa-alshahrani" target="_blank">LinkedIn</a>
+      <a href="https://github.com/YOUR-USERNAME" target="_blank">GitHub</a>
+    </div>
+    <div class="fine">Riyadh, Saudi Arabia</div>
+  </div>
+</footer>
+
+</body>
+</html>
