@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Najla Al-Shahrani, SOC Analyst in Riyadh. SIEM alert triage, threat detection, MITRE ATT&amp;CK, and incident response.">
 <title>Najla Al-Shahrani — SOC Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -24,6 +26,10 @@
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
   body{
     background: var(--bg-0);
     color: var(--ink);
@@ -32,6 +38,7 @@
     overflow-x: hidden;
   }
   a{color:inherit; text-decoration:none;}
+  a:focus-visible{outline: 2px solid var(--gold-bright); outline-offset: 3px;}
   ::selection{background: var(--gold); color: var(--bg-0);}
 
   .bg-field{
@@ -64,10 +71,13 @@
   /* ---------- HERO ---------- */
   header.hero{
     padding: 96px 0 72px;
+  }
+  .hero-inner{
     display:grid; grid-template-columns: 1fr auto; gap: 48px; align-items:center;
   }
   @media(max-width:720px){
-    header.hero{grid-template-columns:1fr; text-align:center; padding-top:64px;}
+    header.hero{padding-top:64px;}
+    .hero-inner{grid-template-columns:1fr; text-align:center;}
     .hero-figure{margin: 0 auto;}
   }
   .kicker{
@@ -99,7 +109,7 @@
   @media(max-width:720px){.hero-figure svg{width:160px; height:160px;}}
 
   /* ---------- SECTION SHELL ---------- */
-  section{padding: 64px 0; border-top: 1px solid var(--line);}
+  section{padding: 64px 0; border-top: 1px solid var(--line); scroll-margin-top: 64px;}
   .section-head{display:flex; align-items:baseline; gap:16px; margin-bottom: 40px;}
   .section-num{font-family:var(--serif); color: var(--gold); font-size:1rem;}
   .section-title{font-family:var(--serif); font-weight:500; font-size:1.7rem;}
@@ -211,17 +221,17 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap" style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
+  <div class="wrap hero-inner">
     <div>
       <div class="kicker">SOC Analyst · Riyadh, Saudi Arabia</div>
       <h1>Reads the system<br>before it's <em>breached</em>.</h1>
-      <p class="lede">A cybersecurity analyst built on a dual foundation — information systems and security operations — investigating 80–100+ real alerts through SIEM, threat intelligence, and the MITRE ATT&CK framework.</p>
+      <p class="lede">A cybersecurity analyst built on a dual foundation — information systems and security operations — investigating 80–100+ real alerts through SIEM, threat intelligence, and the MITRE ATT&amp;CK framework.</p>
       <div class="hero-cta">
         <a href="#casework" class="btn primary">View casework</a>
         <a href="#contact" class="btn ghost">Get in touch</a>
       </div>
     </div>
-    <div class="hero-figure">
+    <div class="hero-figure" aria-hidden="true">
       <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="sil" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -261,7 +271,7 @@
       </div>
       <div class="path cs">
         <span class="path-tag">TRACK TWO</span>
-        <h3>Cybersecurity & Network Systems</h3>
+        <h3>Cybersecurity &amp; Network Systems</h3>
         <div class="meta">Learning Academy · 2.5 years</div>
         <p>Threat detection, network defense, and incident response — applying systems knowledge directly against real attack patterns.</p>
       </div>
@@ -305,50 +315,50 @@
 <section id="casework">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">04</span>
+      <span class="section-num">03</span>
       <div>
         <div class="section-title">Casework</div>
-        <div class="section-sub">Selected investigations — from training-ground exercises to live SOC alerts. Edit this section with your own write-ups.</div>
+        <div class="section-sub">Selected investigations — from training-ground exercises to live SOC alerts.</div>
       </div>
     </div>
-  </div>
-  <div class="case">
-  <div class="case">
-    <span class="id">01</span>
-    <div>
-      <h4>Hidden in Plain Sight LOLBins Detection & Automating SOAR Responses</h4>
-      <p>Engineered a comprehensive Purple Team detection lab analyzing Windows/Sysmon telemetry, detecting LOLBins and fileless execution, authoring custom SIEM correlation rules, and mapping tactics to MITRE ATT&CK.</p>
-      <div class="stack"><span>Threat Detection</span><span>Sysmon</span><span>SIEM</span><span>SOAR</span><span>MITRE ATT&CK</span></div>
-  </div>
-</div>
-    <div class="case">
-      <span class="id">02</span>
-      <div>
-        <h4>Log Analyzer — Automated Alert Triage</h4>
-        <p>A Python script that parses Windows Event Logs and flags repeated failed logon attempts (Event 4625) for early-stage brute-force detection.</p>
-        <div class="stack"><span>Python</span><span>Windows Event Logs</span><span>SOC Automation</span></div>
+    <div class="cases">
+      <div class="case">
+        <span class="id">01</span>
+        <div>
+          <h4>Hidden in Plain Sight LOLBins Detection &amp; Automating SOAR Responses</h4>
+          <p>Engineered a comprehensive Purple Team detection lab analyzing Windows/Sysmon telemetry, detecting LOLBins and fileless execution, authoring custom SIEM correlation rules, and mapping tactics to MITRE ATT&amp;CK.</p>
+          <div class="stack"><span>Threat Detection</span><span>Sysmon</span><span>SIEM</span><span>SOAR</span><span>MITRE ATT&amp;CK</span></div>
+        </div>
       </div>
-    </div>
-    <div class="case">
-      <span class="id">03</span>
-      <div>
-        <h4>TryHackMe — SOC Level 1 Path</h4>
-        <p class="placeholder-tag"> Currently training on this - write-up coming soon.</p>
-        <div class="stack"><span>SIEM</span><span>MITRE ATT&CK</span><span>Threat Hunting</span></div>
+      <div class="case">
+        <span class="id">02</span>
+        <div>
+          <h4>Log Analyzer — Automated Alert Triage</h4>
+          <p>A Python script that parses Windows Event Logs and flags repeated failed logon attempts (Event 4625) for early-stage brute-force detection.</p>
+          <div class="stack"><span>Python</span><span>Windows Event Logs</span><span>SOC Automation</span></div>
+        </div>
       </div>
-    </div>
-    <div class="case">
-      <span class="id">04</span>
-      <div>
-        <h4>SQL Injection — Build & Break</h4>
-        <p class="placeholder-tag"> Currently training on this - write-up coming soon.</p>
-        <div class="stack"><span>SQL</span><span>Web Security</span><span>PHP</span></div>
+      <div class="case">
+        <span class="id">03</span>
+        <div>
+          <h4>TryHackMe — SOC Level 1 Path</h4>
+          <p class="placeholder-tag">Currently training on this — write-up coming soon.</p>
+          <div class="stack"><span>SIEM</span><span>MITRE ATT&amp;CK</span><span>Threat Hunting</span></div>
+        </div>
+      </div>
+      <div class="case">
+        <span class="id">04</span>
+        <div>
+          <h4>SQL Injection — Build &amp; Break</h4>
+          <p class="placeholder-tag">Currently training on this — write-up coming soon.</p>
+          <div class="stack"><span>SQL</span><span>Web Security</span><span>PHP</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section id="toolkit">
   <div class="wrap">
     <div class="section-head">
       <span class="section-num">04</span>
@@ -360,18 +370,18 @@
       <div class="skillcol">
         <h4>Security Operations</h4>
         <ul>
-          <li>SIEM Analysis & Alert Triage</li>
-          <li>MITRE ATT&CK / Cyber Kill Chain</li>
+          <li>SIEM Analysis &amp; Alert Triage</li>
+          <li>MITRE ATT&amp;CK / Cyber Kill Chain</li>
           <li>Threat Intelligence (VirusTotal, ip_intel)</li>
-          <li>Incident Response & Documentation</li>
+          <li>Incident Response &amp; Documentation</li>
         </ul>
       </div>
       <div class="skillcol">
-        <h4>Systems & Development</h4>
+        <h4>Systems &amp; Development</h4>
         <ul>
           <li>Python, PHP, Java, C / C++ / C#</li>
-          <li>SQL & Database Design</li>
-          <li>Windows & Linux Environments</li>
+          <li>SQL &amp; Database Design</li>
+          <li>Windows &amp; Linux Environments</li>
           <li>Network Fundamentals (TCP/IP, DNS)</li>
         </ul>
       </div>
@@ -385,8 +395,8 @@
     <p>Open to SOC Analyst, Threat Intelligence, and Incident Response roles.</p>
     <div class="contact-links">
       <a href="mailto:najlaaal@outlook.com">najlaaal@outlook.com</a>
-      <a href="https://linkedin.com/in/najlaa-a-5428161ba" target="_blank">LinkedIn</a>
-      <a href="https://github.com/n-alshahrani" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/najlaa-a-5428161ba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/n-alshahrani" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
     <div class="fine">Riyadh, Saudi Arabia</div>
   </div>
